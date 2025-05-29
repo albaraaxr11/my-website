@@ -1,119 +1,267 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>albaraaxr11 | الصفحة الرسمية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
   <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
     body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      background-color: #1a1a1a;
-      color: white;
-      text-align: center;
+      font-family: 'Cairo', sans-serif;
+      background-color: #121212;
+      color: #eee;
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 20px;
+      scroll-behavior: smooth;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
     }
     header {
-      background-color: #b30000;
-      padding: 30px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(90deg, #b30000, #800000);
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(179,0,0,0.7);
+      flex-wrap: wrap;
+      gap: 20px;
     }
-    header img {
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 1 1 350px;
+    }
+    .logo-container img {
       width: 140px;
       height: 140px;
       border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 0 15px #ff4d4d;
       object-fit: cover;
-      border: 3px solid white;
-      margin-bottom: 15px;
+      transition: transform 0.3s ease;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    .logo-container img:hover {
+      transform: scale(1.05);
+    }
+    .logo-text {
       color: #fff;
+      text-align: right;
     }
-    .banner img {
-      max-width: 700px;
-      width: 90%;
+    .logo-text h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      text-shadow: 1px 1px 8px #ff0000cc;
+    }
+    .logo-text p {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #ffd6d6;
+      text-shadow: 1px 1px 5px #b30000cc;
+    }
+    .banner-container {
+      flex: 1 1 450px;
+      max-width: 450px;
+      border-radius: 15px;
+      overflow: hidden;
+      border: 3px solid #ff4d4d;
+      box-shadow: 0 0 30px #ff0000cc;
+      transition: box-shadow 0.3s ease;
+    }
+    .banner-container img {
+      width: 100%;
       height: auto;
-      border-radius: 10px;
-      margin-top: 20px;
+      display: block;
     }
-    .social a {
-      margin: 10px;
-      font-size: 1.2rem;
+    .banner-container:hover {
+      box-shadow: 0 0 50px #ff0000ff;
+    }
+    nav {
+      margin-top: 30px;
+      background-color: #2b2b2b;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #b30000aa;
+      overflow: hidden;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex-wrap: wrap;
+    }
+    nav ul li {
+      margin: 10px 25px;
+    }
+    nav ul li a {
       color: #ff6666;
+      font-weight: 700;
       text-decoration: none;
+      font-size: 1.2rem;
+      padding: 12px 18px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease;
       display: inline-block;
     }
-    .social a:hover {
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: #ff4d4d;
       color: white;
+      box-shadow: 0 0 10px #ff0000cc;
     }
-    .about, .popular-video {
-      padding: 40px 20px;
+    section {
+      margin-top: 40px;
       background-color: #262626;
-      border-top: 4px solid #b30000;
-      margin-top: 30px;
+      padding: 30px 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #b30000bb;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .about h2, .popular-video h2 {
+    section h2 {
       color: #ff4d4d;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      text-align: right;
     }
-    .about p {
+    section p {
       font-size: 1.2rem;
       line-height: 2;
+      text-align: right;
+    }
+    .social-links a {
+      display: inline-block;
+      margin: 8px 15px;
+      font-size: 1.3rem;
+      color: #ff6666;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .social-links a:hover {
+      color: #fff;
     }
     iframe {
-      max-width: 90%;
-      border-radius: 10px;
+      max-width: 100%;
+      border-radius: 12px;
+      display: block;
+      margin: 20px auto 0 auto;
     }
     footer {
       background-color: #111;
       padding: 20px;
       color: #888;
-      margin-top: 40px;
+      margin-top: 60px;
+      text-align: center;
+      border-radius: 10px;
+    }
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+      }
+      .banner-container,
+      .logo-container {
+        flex: unset;
+        max-width: 100%;
+      }
+      nav ul li {
+        margin: 10px 15px;
+      }
+    }
+    @media (max-width: 480px) {
+      nav ul {
+        flex-direction: column;
+        gap: 12px;
+      }
+      nav ul li {
+        margin: 0;
+        text-align: center;
+      }
+      nav ul li a {
+        font-size: 1.1rem;
+        padding: 10px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- الشعار -->
-  <header>
-    <img src="logo.webp" alt="شعار albaraaxr11">
-    <h1>albaraaxr11</h1>
-    <p>مرحباً بكم في موقعي الرسمي 👋</p>
-  </header>
+  <div class="container">
 
-  <!-- البنر المتحرك -->
-  <section class="banner">
-    <img src="banner.gif" alt="بنر متحرك">
-  </section>
+    <header>
+      <div class="logo-container" aria-label="شعار الموقع">
+        <img src="logo.webp" alt="شعار albaraaxr11" />
+        <div class="logo-text">
+          <h1>albaraaxr11</h1>
+          <p>مرحباً بكم في موقعي الرسمي 👋</p>
+        </div>
+      </div>
 
-  <!-- روابط التواصل -->
-  <section class="social">
-    <h2>تابعني على:</h2>
-    <a href="https://www.youtube.com/@albaraaxr11" target="_blank">🎥 يوتيوب</a>
-    <a href="https://www.instagram.com/albaraaxr11" target="_blank">📸 إنستقرام</a>
-    <a href="https://www.tiktok.com/@albaraaxr11" target="_blank">🎵 تيك توك</a>
-    <a href="https://x.com/albaraaxr11" target="_blank">✖️ منصة X</a>
-  </section>
+      <div class="banner-container" aria-label="بنر الموقع">
+        <img src="banner.gif" alt="بنر متحرك" />
+      </div>
+    </header>
 
-  <!-- من أنا -->
- <section class="about">
-  <h2>من أنا؟</h2>
-  <p>أنا albaraaxr11 صانع محتوى مبدع على عدة منصات 🎥📱 أقدّم مقاطع ممتعة، تحديات، فلوقات، ولقطات مميزة من يومي. تابعني لتستمتع بالمزيد! ✨</p>
+    <nav role="navigation" aria-label="روابط الموقع">
+      <ul>
+        <li><a href="#about" class="active">من أنا؟</a></li>
+        <li><a href="#social">تابعني</a></li>
+        <li><a href="#popular-video">الفيديو الأشهر</a></li>
+        <li><a href="#contact">تواصل معي</a></li>
+      </ul>
+    </nav>
 
-  <div style="margin-top: 20px; font-size: 1.1rem; color: #ffcccc;">
-    <em>“وأنت الذي أخلفتني ما وعدتني وأشمتّ بي من كان فيك يلوم” ✨<br>
-    في يومٍ ما، سوف تصبح القناة من أكبر القنوات في الشرق الأوسط ✨🫰🏻🌷</em>
+    <!-- قسم من أنا -->
+    <section id="about">
+      <h2>من أنا؟</h2>
+      <p>أنا albaraaxr11 صانع محتوى مبدع على عدة منصات 🎥📱 أقدّم مقاطع ممتعة، تحديات، فلوقات، ولقطات مميزة من يومي. تابعني لتستمتع بالمزيد! ✨</p>
+      <blockquote style="color:#ffcccc; font-style: italic; margin-top: 20px; font-size: 1.1rem;">
+        “وأنت الذي أخلفتني ما وعدتني وأشمتّ بي من كان فيك يلوم” ✨<br />
+        في يومٍ ما، سوف تصبح القناة من أكبر القنوات في الشرق الأوسط ✨🫰🏻🌷
+      </blockquote>
+    </section>
+
+    <!-- قسم تابعني -->
+    <section id="social" class="social-links">
+      <h2>تابعني على:</h2>
+      <a href="https://www.youtube.com/@albaraaxr11" target="_blank" rel="noopener noreferrer">🎥 يوتيوب</a>
+      <a href="https://www.instagram.com/albaraaxr11" target="_blank" rel="noopener noreferrer">📸 إنستقرام</a>
+      <a href="https://www.tiktok.com/@albaraaxr11" target="_blank" rel="noopener noreferrer">🎵 تيك توك</a>
+      <a href="https://x.com/albaraaxr11" target="_blank" rel="noopener noreferrer">✖️ منصة X</a>
+    </section>
+
+    <!-- قسم الفيديو الأشهر -->
+    <section id="popular-video">
+      <h2>🎬 أشهر فيديو في قناتي</h2>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/y1_NdH13T1I" title="أشهر فيديو في قناة albaraaxr11" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <!-- قسم تواصل معي -->
+    <section id="contact">
+      <h2>تواصل معي</h2>
+      <p>للتواصل معي، يمكنك استخدام الروابط في قسم "تابعني على" أعلاه، أو مراسلتي عبر البريد الإلكتروني التالي:</p>
+      <p><a href="mailto:your-email@example.com" style="color:#ff6666; text-decoration:none;">your-email@example.com</a></p>
+    </section>
+
   </div>
-</section>
-
-  <!-- الفيديو الأشهر -->
-  <section class="popular-video">
-    <h2>🎬 أشهر فيديو في قناتي</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/y1_NdH13T1I" frameborder="0" allowfullscreen></iframe>
-  </section>
 
   <footer>
     <p>© 2025 albaraaxr11 - جميع الحقوق محفوظة</p>
   </footer>
 
-</body>
-</html>
+  <script>
+    // تفعيل النمط النشط في التنقل
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        navLinks.forEach(l
